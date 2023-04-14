@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+  <h2>Registration</h2>
+  <form method="post">
+  {% csrf_token %}
+  <div>
+    <label for="{{ form.username.id_for_label }}">Username:</label>
+    {{ form.username }}
+  </div>
+  <div>
+  <label for="{{ form.email.id_for_label }}">Email:</label>
+  {{ form.email }}
+  <input type="email" name="{{ form.email.name }}" autocomplete="{{ form.email.name }}">
+</div>
+  <div>
+    <label for="{{ form.password1.id_for_label }}">Password:</label>
+    {{ form.password1 }}
+  </div>
+  <div>
+    <label for="{{ form.password2.id_for_label }}">Password confirmation:</label>
+    {{ form.password2 }}
+  </div>
+  <input type="submit" value="Register">
+</form>
+{% endblock %}
